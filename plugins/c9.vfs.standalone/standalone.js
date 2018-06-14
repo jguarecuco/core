@@ -275,13 +275,15 @@ function plugin(options, imports, register) {
         };
     };    
     api.updatConfig = api.updatConfig || function(opts, params) {
+        
+        console.log(opts.user);
         var id = params.token;
         opts.accessToken = id || "token";
         var user = opts.extendOptions.user;
         user.id = id || -1;
-        user.name = id ? "user" + id : "johndoe";
-        user.email = id ? "user" + id + "@c9.io" : "johndoe@example.org";
-        user.fullname = id ? "User " + id : "John Doe";
+        user.name = id ? "user" + id : "jguarecuco";
+        user.email = id ? "user" + id + "@c9.io" : "jguarecuco@gmail.com";
+        user.fullname = id ? "User " + id : "Jose Guarecuco";
         opts.workspaceDir = params.w ? params.w : options.workspaceDir;
         opts.projectName = basename(opts.workspaceDir);
         if (!options._projects) {
