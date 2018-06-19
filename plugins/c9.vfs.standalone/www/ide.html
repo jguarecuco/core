@@ -28,20 +28,14 @@
         document.body.className = "loading " + loadingIde.className;
     
         var messages = [
-            "Share your code by sharing your workspace URL.",
-            "Test your code in different browsers with the Sauce Labs plugin.",
-            "Each workspace is its own Ubuntu virtual machine.",
-            "Run 'dpkg -l' in the terminal to see all packages installed.",
-            "Remember to run your code on port 8080, 8081, or 8082.",
-            "Use the Collaborate panel when collaborating for optimal teamwork.",
-            "It's better up here.",
-            "Happy coding!",
-            "Everything as you left it.",
-            "Thank you Ada Lovelace!",
-            "POST /desktop/era",
-            "Try using VIM mode!",
-            "Not your grandmother's IDE",
-            "Makes your laptop cooler"
+            "Mata un Maldito Chavista al Dia y seras Feliz.",
+            "Si crees que programar es divertido, toma el camion de Ramiro y no frenes en los semaforos.",
+            "Angular esta hecho por el Diablo.",
+            "No digas Maldiciones mientras estes Trabajando en Angular.",
+            "Prueba el Azucar antes de Hecharlo al Cafe ley de Vida.",
+            "Revisa si hay Agua antes de Cagar.",
+            "No se por que estas Feliz si Vives en Venezuela.",
+            "Maldice al arabe o a tu Vecinos!" 
         ];
         
         var mac_keybindings = [
@@ -98,6 +92,7 @@
     <script>
         var plugins;
         require(["text!/ide.html?settings=1"], function(workspaceSettings) {
+            
             workspaceSettings = JSON.parse(workspaceSettings);
             require(["lib/architect/architect", "configs/ide/" + workspaceSettings.configName], function(architect, config) {
                 plugins = config(workspaceSettings);

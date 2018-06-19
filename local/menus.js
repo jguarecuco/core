@@ -268,8 +268,8 @@ function MenuManager(){
             nativeMenuBar = new gui.Menu({ type: "menubar" });
             
             setRootMenu({name: "Cloud9", index: 50});
-            setRootMenu({name: "File", index: 100});
-            setRootMenu({name: "Edit", index: 200});
+            setRootMenu({name: "Archivo", index: 100});
+            setRootMenu({name: "Edición", index: 200});
             setRootMenu({name: "Find", index: 300});
             setRootMenu({name: "View", index: 400});
             setRootMenu({name: "Goto", index: 500});

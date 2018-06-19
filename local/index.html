@@ -250,6 +250,7 @@
         }
         
         function startIde() {
+            console.log("Paso por StartIde");
             if (!window.plugins || !window.requirejs)
                 return;
             if (!packed && !window.requirejs.baseConfig) {
