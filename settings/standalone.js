@@ -34,7 +34,7 @@ module.exports = function(manifest, installPath) {
         ? "~" + installPath.substr(home.length)
         : installPath;
     var inContainer = os.hostname().match(/-\d+$/);
-    
+    console.log("Que malparicion");
     var config = {
         standalone: true,
         startBridge: true,
@@ -104,7 +104,7 @@ module.exports = function(manifest, installPath) {
         user: {
             id: -1,
             name: "jguarecuco",
-            fullname: "Jose Guarecuco",
+            fullname: "Jose Guarecuco1",
             email: "jguarecuco@gmail.com",
             pubkey: null
         },

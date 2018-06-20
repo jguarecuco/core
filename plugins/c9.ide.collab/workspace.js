@@ -25,6 +25,8 @@ define(function(require, exports, module) {
         var onlineCount = 0;
 
         var myUserId = info.getUser().id;
+        var datosuser=info.getUser();
+        console.log(datosuser);
         var loadedWorkspace = false;
         var myClientId, myOldClientId, fs;
         var reversedAuthorPool, chatHistory;
@@ -125,6 +127,7 @@ define(function(require, exports, module) {
         }
 
         function joinClient(user, clientId) {
+           // console.log("Paso por joinClient");
             var uid = user.uid;
             var authorId = user.author;
             users[uid] = user;
@@ -421,7 +424,11 @@ define(function(require, exports, module) {
             /**
              * Gets the chat history being a list of messages (max. the most recent 100 messages)
              */
-            addChatMessage: function (msg) { chatHistory.push(msg); },
+            addChatMessage: function (msg) { 
+               // console.log(msg);
+                chatHistory.push(msg); 
+                
+            },
             /**
              * Gets a user object given his user id - retriving his full name and email address
              * @param {Number} uid

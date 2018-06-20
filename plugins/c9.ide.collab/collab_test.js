@@ -134,6 +134,7 @@ require(["lib/architect/architect", "lib/chai/chai", "/vfs-root"],
 
                 it('should connect', function(done) {
                     connect.on("connect", function(msg) {
+                        console.log(msg);
                         expect(connect.connected).to.be.true;
                         expect(collab.connected).to.be.true;
                         expect(Object.keys(workspace.users)).length(1);

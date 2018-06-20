@@ -21,6 +21,7 @@ var basename = require("path").basename;
 var frontdoor = require("frontdoor");
 
 function plugin(options, imports, register) {
+    
     var previewHandler = imports["preview.handler"];
     var statics = imports["connect.static"];
     
@@ -53,7 +54,10 @@ function plugin(options, imports, register) {
     });
     
     api.get("/ide.html", {
-        params: {
+        params: {name:{
+            source:"query",
+            optional:true
+        },
             workspacetype: {
                 source: "query",
                 optional: true
@@ -101,7 +105,8 @@ function plugin(options, imports, register) {
             },
         }
     }, function(req, res, next) {
-
+        
+        console.log("parametros",req.params);
         var configName = getConfigName(req.params, options);
 
         var collab = options.collab && req.params.collab !== 0 && req.params.nocollab != 1;
@@ -116,6 +121,7 @@ function plugin(options, imports, register) {
         options.options.CORSWorkerPrefix = opts.packed ? "/static/" + cdn.version + "/worker" : "";
         
         api.updatConfig(opts.options, {
+            name:req.params.name,
             w: req.params.w,
             token: req.params.token
         });
@@ -276,7 +282,7 @@ function plugin(options, imports, register) {
     };    
     api.updatConfig = api.updatConfig || function(opts, params) {
         
-        console.log(opts.user);
+        console.log("Anterior de user",opts.extendOptions.user);
         var id = params.token;
         opts.accessToken = id || "token";
         var user = opts.extendOptions.user;
@@ -284,6 +290,7 @@ function plugin(options, imports, register) {
         user.name = id ? "user" + id : "jguarecuco";
         user.email = id ? "user" + id + "@c9.io" : "jguarecuco@gmail.com";
         user.fullname = id ? "User " + id : "Jose Guarecuco";
+        console.log(user);
         opts.workspaceDir = params.w ? params.w : options.workspaceDir;
         opts.projectName = basename(opts.workspaceDir);
         if (!options._projects) {

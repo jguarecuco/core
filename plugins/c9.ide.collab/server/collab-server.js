@@ -983,6 +983,7 @@ var Store = (function () {
      * @param {Function} callback
      */
     function getUsers(callback) {
+        
         if (cachedUsers)
             return callback(null, cachedUsers);
         wrapSeq(User.all(), function (err, users) {
